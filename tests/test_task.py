@@ -1,7 +1,5 @@
-import sys
-sys.path.insert(0, '../src')
 import pytest
-from a import TaskManager
+from src.a import TaskManager
 
 def test_create_task():
     manager = TaskManager()
