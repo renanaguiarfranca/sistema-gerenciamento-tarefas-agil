@@ -1,14 +1,12 @@
 class Task:
-    """Classe que representa uma tarefa no sistema."""
     def __init__(self, id, title, description, priority, status='A Fazer'):
         self.id = id
         self.title = title
         self.description = description
-        self.priority = priority  # Alta, Média, Baixa
-        self.status = status  # A Fazer, Em Progresso, Concluído
+        self.priority = priority
+        self.status = status
 
 class TaskManager:
-    """Gerenciador de tarefas com operações CRUD."""
     def __init__(self):
         self.tasks = []
         self.next_id = 1
@@ -40,7 +38,6 @@ class TaskManager:
                 return self.tasks.pop(i)
         return None
 
-# CLI simples
 def main():
     manager = TaskManager()
     while True:
