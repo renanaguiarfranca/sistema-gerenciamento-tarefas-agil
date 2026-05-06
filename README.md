@@ -14,7 +14,7 @@ Utilizamos a metodologia Kanban para gestão de tarefas, com um quadro dividido 
 
 ## Como Executar
 1. Instale Python 3.x.
-2. Execute `python a.py` para iniciar o sistema.
+2. Execute `python src/a.py` para iniciar o sistema.
 3. Siga as instruções no terminal para gerenciar tarefas.
 
 ## Mudanças no Escopo
