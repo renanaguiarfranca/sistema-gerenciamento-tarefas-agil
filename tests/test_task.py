@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(0, '../src')
 import pytest
 from a import TaskManager
 
