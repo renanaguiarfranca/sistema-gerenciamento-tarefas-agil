@@ -27,3 +27,13 @@ def test_delete_task():
     deleted = manager.delete_task(1)
     assert deleted is not None
     assert len(manager.tasks) == 0
+
+def test_list_by_priority():
+    manager = TaskManager()
+    manager.create_task("Task1", "Desc", "Baixa")
+    manager.create_task("Task2", "Desc", "Alta")
+    manager.create_task("Task3", "Desc", "Média")
+    sorted_tasks = manager.list_by_priority()
+    assert sorted_tasks[0].priority == "Alta"
+    assert sorted_tasks[1].priority == "Média"
+    assert sorted_tasks[2].priority == "Baixa"

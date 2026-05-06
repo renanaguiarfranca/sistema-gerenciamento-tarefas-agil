@@ -28,11 +28,9 @@ class TaskManager:
                 return task
         return None
 
-    def delete_task(self, id):
-        for i, task in enumerate(self.tasks):
-            if task.id == id:
-                return self.tasks.pop(i)
-        return None
+    def list_by_priority(self):
+        priority_order = {'Alta': 1, 'Média': 2, 'Baixa': 3}
+        return sorted(self.tasks, key=lambda t: priority_order.get(t.priority, 4))
 
 # CLI simples
 def main():
@@ -40,9 +38,10 @@ def main():
     while True:
         print("\n1. Criar Tarefa")
         print("2. Listar Tarefas")
-        print("3. Atualizar Tarefa")
-        print("4. Deletar Tarefa")
-        print("5. Sair")
+        print("3. Listar por Prioridade")
+        print("4. Atualizar Tarefa")
+        print("5. Deletar Tarefa")
+        print("6. Sair")
         choice = input("Escolha: ")
         if choice == '1':
             title = input("Título: ")
@@ -54,15 +53,18 @@ def main():
             for task in manager.read_tasks():
                 print(f"ID: {task.id}, Título: {task.title}, Status: {task.status}")
         elif choice == '3':
+            for task in manager.list_by_priority():
+                print(f"ID: {task.id}, Título: {task.title}, Prioridade: {task.priority}")
+        elif choice == '4':
             id = int(input("ID da tarefa: "))
             status = input("Novo status (A Fazer/Em Progresso/Concluído): ")
             manager.update_task(id, status=status)
             print("Tarefa atualizada.")
-        elif choice == '4':
+        elif choice == '5':
             id = int(input("ID da tarefa: "))
             manager.delete_task(id)
             print("Tarefa deletada.")
-        elif choice == '5':
+        elif choice == '6':
             break
 
 if __name__ == "__main__":
