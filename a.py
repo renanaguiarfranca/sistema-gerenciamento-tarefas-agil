@@ -1,4 +1,5 @@
 class Task:
+    """Classe que representa uma tarefa no sistema."""
     def __init__(self, id, title, description, priority, status='A Fazer'):
         self.id = id
         self.title = title
@@ -7,6 +8,7 @@ class Task:
         self.status = status  # A Fazer, Em Progresso, Concluído
 
 class TaskManager:
+    """Gerenciador de tarefas com operações CRUD."""
     def __init__(self):
         self.tasks = []
         self.next_id = 1
@@ -31,6 +33,12 @@ class TaskManager:
     def list_by_priority(self):
         priority_order = {'Alta': 1, 'Média': 2, 'Baixa': 3}
         return sorted(self.tasks, key=lambda t: priority_order.get(t.priority, 4))
+
+    def delete_task(self, id):
+        for i, task in enumerate(self.tasks):
+            if task.id == id:
+                return self.tasks.pop(i)
+        return None
 
 # CLI simples
 def main():
