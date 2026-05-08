@@ -1,1 +1,4 @@
+Flask
 pytest
+python-docx
+flake8
