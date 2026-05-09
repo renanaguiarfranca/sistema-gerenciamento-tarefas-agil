@@ -8,7 +8,7 @@ class Task:
         self.status = status  
 
 class TaskManager:
-    """Gerenciador de tarefas com operações CRUD."""
+    """============Gerenciador de tarefas com operações CRUD.============"""
     def __init__(self):
         self.tasks = []
         self.next_id = 1
@@ -44,34 +44,36 @@ class TaskManager:
 def main():
     manager = TaskManager()
     while True:
+        print("\n======================= MENU =======================")
         print("\n1. Criar Tarefa")
         print("2. Listar Tarefas")
         print("3. Listar por Prioridade")
         print("4. Atualizar Tarefa")
         print("5. Deletar Tarefa")
         print("6. Sair")
+        print("\n======================= MENU =======================")
         choice = input("Escolha: ")
         if choice == '1':
-            title = input("Título: ")
-            desc = input("Descrição: ")
-            prio = input("Prioridade (Alta/Média/Baixa): ")
+            title = input("Título:\n")
+            desc = input("Descrição:\n")
+            prio = input("Prioridade (Alta/Média/Baixa):\n")
             manager.create_task(title, desc, prio)
-            print("Tarefa criada.")
+            print("============Tarefa criada============.")
         elif choice == '2':
             for task in manager.read_tasks():
-                print(f"ID: {task.id}, Título: {task.title}, Status: {task.status}")
+                print(f"ID: {task.id}\n Título: {task.title}\nStatus: {task.status}")
         elif choice == '3':
             for task in manager.list_by_priority():
-                print(f"ID: {task.id}, Título: {task.title}, Prioridade: {task.priority}")
+                print(f"ID: {task.id}\nTítulo: {task.title}\nPrioridade: {task.priority}")
         elif choice == '4':
             id = int(input("ID da tarefa: "))
             status = input("Novo status (A Fazer/Em Progresso/Concluído): ")
             manager.update_task(id, status=status)
-            print("Tarefa atualizada.")
+            print("============Tarefa atualizada============.")
         elif choice == '5':
             id = int(input("ID da tarefa: "))
             manager.delete_task(id)
-            print("Tarefa deletada.")
+            print("============Tarefa deletada============.")
         elif choice == '6':
             break
 
