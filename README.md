@@ -16,24 +16,6 @@ Desenvolver um sistema web básico de gerenciamento de tarefas com suporte a cri
 - Exclusão de tarefas.
 - Consulta de tarefas por prioridade.
 
-## Como Executar
-1. Instale as dependências:
-   ```bash
-   python -m pip install --upgrade pip
-   pip install -r requirements.txt
-   ```
-2. Inicie o aplicativo web:
-   ```bash
-   python src/app.py
-   ```
-3. Abra o navegador em `http://127.0.0.1:5000`
-
-## Testes
-Execute os testes com Pytest:
-```bash
-pytest
-```
-
 ## Pipeline de CI
 O GitHub Actions configura um fluxo de CI que:
 - instala dependências
